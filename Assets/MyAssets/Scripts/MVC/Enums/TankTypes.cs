@@ -2,13 +2,13 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class TankType
+namespace BattleTank
 {
-    public enum tankType
+    public enum TankType
     {
         None,
-        Red,
-        Blue,
-        Green
+        YellowTank,
+        BlueTank,
+        GreenTank
     }
 }

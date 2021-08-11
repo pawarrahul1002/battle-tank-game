@@ -12,11 +12,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4140b872bcfedd843bafd7825553bfff, type: 3}
   m_Name: GreenTankSO
   m_EditorClassIdentifier: 
+  tankType: 3
   tankView: {fileID: 4053100857471290024, guid: d3514769a3c8b1847af1267c309eaa3e,
     type: 3}
-  tankName: GreenTank
   movementSpeed: 25
-  rotationSpeed: 300
+  rotationSpeed: 200
   health: 100
   fireRate: 0.5
-  bulletType: fast
+  bulletType: {fileID: 11400000, guid: e7a7568951cda754dab68be2573ed6ff, type: 2}

@@ -11,9 +11,9 @@ namespace BattleTank
         public TankType tankType { get; private set; }
         public float movementSpeed { get; private set; }
         public float rotationSpeed { get; private set; }
-        public float fireRate { get; private set; }
         public float health { get; set; }
         public BulletScriptableObjects bulletType { get; private set; }
+        public float fireRate { get; private set; }
         public TankModel(TankScriptableObjects tankSO)
         {
 
@@ -23,8 +23,9 @@ namespace BattleTank
             // behaviour vars
             movementSpeed = tankSO.movementSpeed;
             rotationSpeed = tankSO.rotationSpeed;
-            fireRate = tankSO.fireRate;
             health = tankSO.health;
+            fireRate = tankSO.fireRate;
+            bulletType = tankSO.bulletType;
         }
 
         public void SetTankController(TankController _tankController)

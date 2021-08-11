@@ -1,13 +1,10 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
-public class BulletTypes
+﻿namespace BattleTank
 {
-    public enum bulletTypes
+    public enum BulletTypes
     {
         None,
-        Slow,   //yellow tank 15
-        Medium, //blue tank 20
-        Fast    //green tank 25
+        Yellow,   //speed  15
+        Blue, //speed  20
+        Green    //speed 25
     }
 }

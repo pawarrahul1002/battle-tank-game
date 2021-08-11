@@ -9526,6 +9526,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   BulletShootPoint: {fileID: 6660215323375150451}
+  tankDestroyVFX: {fileID: 4742175977092539294}
 --- !u!1 &6178547886068065698
 GameObject:
   m_ObjectHideFlags: 0

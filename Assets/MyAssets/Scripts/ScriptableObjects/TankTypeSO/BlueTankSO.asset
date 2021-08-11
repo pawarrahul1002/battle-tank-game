@@ -12,11 +12,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4140b872bcfedd843bafd7825553bfff, type: 3}
   m_Name: BlueTankSO
   m_EditorClassIdentifier: 
+  tankType: 2
   tankView: {fileID: 6467218621629760803, guid: f5940d374efd518429bd9d8373f35674,
     type: 3}
-  tankName: BlueTank
   movementSpeed: 20
   rotationSpeed: 200
   health: 150
   fireRate: 1
-  bulletType: medium
+  bulletType: {fileID: 11400000, guid: d68be213663080143b505957470a2c29, type: 2}

@@ -6,7 +6,6 @@ namespace BattleTank
 {
     public class TankController
     {
-
         public TankModel tankModel { get; private set; }
         public TankView tankView { get; private set; }
         private Rigidbody rb;
@@ -36,7 +35,9 @@ namespace BattleTank
 
         public void ShootBullet()
         {
-            BulletService.Instance.CreateBullet(GetFiringPosition(), GetFiringAngle(), GetBullet());
+            // BulletServices.instance.BulletDebug();
+            BulletServices.GetInstance().CreateBullet(GetFiringPosition(), GetFiringAngle(), GetBullet());
+            // GameObject.Instantiate<BulletView>(tankModel.bulletType.bulletView, GetFiringPosition(), GetFiringAngle());
         }
 
         public Vector3 GetFiringPosition()

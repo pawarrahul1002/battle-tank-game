@@ -17,5 +17,13 @@ namespace BattleTank
             bulletModel.SetBulletController(this);
             rigidbody = bulletView.GetComponent<Rigidbody>();
         }
+
+        public void Movement()
+        {
+            // rigidbody.AddForce(bulletView.transform.forward * bulletModel.bulletForce, ForceMode.Impulse);
+            Vector3 move = bulletView.transform.transform.position += bulletView.transform.forward * bulletModel.bulletForce * Time.fixedDeltaTime;
+
+            rigidbody.MovePosition(move);
+        }
     }
 }

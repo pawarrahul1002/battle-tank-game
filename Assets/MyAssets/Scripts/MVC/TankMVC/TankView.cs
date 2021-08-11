@@ -8,8 +8,11 @@ namespace BattleTank
     {
         private TankController tankController;
         private float movement, rotation;
-        public Transform BulletShootPoint;
         private float canFire = 0f;
+
+        public Transform BulletShootPoint;
+        // public GameObject tankDestroyVFX;
+
         public void SetTankController(TankController _tankController)
         {
             tankController = _tankController;
@@ -18,20 +21,12 @@ namespace BattleTank
         void Update()
         {
             Movement();
-
-            // if (movement != 0)
-            //     tankController.MoveTank(movement, tankController.tankModel.movementSpeed);
-
-            // if (rotation != 0)
-            //     tankController.RotateTank(rotation, tankController.tankModel.rotationSpeed);
+            ShootBullet();
         }
 
         private void FixedUpdate()
         {
-            // if (movement != 0)
             tankController.MoveTank(movement, tankController.tankModel.movementSpeed);
-
-            // if (rotation != 0)
             tankController.RotateTank(rotation, tankController.tankModel.rotationSpeed);
         }
 
@@ -50,11 +45,10 @@ namespace BattleTank
             }
         }
 
+    }//class
 
-    }
 
-
-}//class
+}
 
 
 

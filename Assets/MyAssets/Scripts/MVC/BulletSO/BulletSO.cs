@@ -8,19 +8,19 @@ namespace BattleTank
     [CreateAssetMenu(fileName = "BulletScriptableObjects", menuName = "ScriptableObject/NewBullet")]
     public class BulletScriptableObjects : ScriptableObject
     {
+        [Header("MVC Essentials")]
         public BulletView bulletView;
-        public string bulletName;
-        public float bulletForce;
 
-        // public float maxLifeTime;// 1.5f
+        [Header("Behaviour Variables")]
+        public BulletTypes bulletTypes;
+        public float bulletForce;
+        public float bulletDamage;
     }
 
     [CreateAssetMenu(fileName = "BulletSO_List", menuName = "ScriptableObjectList/BulletListOfSO")]
-    public class BulletScriptableObjectList : ScriptableObject
+    public class BulletSO_List : ScriptableObject
     {
         public BulletScriptableObjects[] bullets;
     }
-
-
 
 }
