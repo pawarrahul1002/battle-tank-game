@@ -2,21 +2,31 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-
-
-public class CameraController : MonoBehaviour
+namespace BattleTank
 {
-    [SerializeField] private Transform target;
-    [SerializeField] private float smoothSpeed = 0.005f;
-    [SerializeField] private Vector3 offset;
 
-
-    private void LateUpdate()
+    public class CameraController : MonoSingletonGeneric<CameraController>
     {
-        Vector3 desiredposition = target.position + offset;
-        Vector3 smoothPosition = Vector3.Lerp(transform.position, desiredposition, smoothSpeed);
-        transform.position = smoothPosition;
+        [SerializeField] private Transform target;
+        [SerializeField] private float smoothSpeed = 0.005f;
+        [SerializeField] private Vector3 offset = new Vector3(300, 300, 300);
+        Vector3 targetPos;
 
-        transform.LookAt(target);
+        public void SetTarget(Transform target)
+        {
+            this.target = target;
+        }
+
+        private void LateUpdate()
+        {
+            Vector3 desiredposition = target.position + offset;
+            Vector3 smoothPosition = Vector3.Lerp(transform.position, desiredposition, smoothSpeed);
+            transform.position = smoothPosition;
+
+            transform.LookAt(target);
+
+        }
+
+
     }
 }

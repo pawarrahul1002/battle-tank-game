@@ -17,7 +17,7 @@ GameObject:
   - component: {fileID: 7738208821899304551}
   - component: {fileID: 114872764343888332}
   m_Layer: 0
-  m_Name: pfMediumBullet
+  m_Name: pfBlueBullet
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -259,7 +259,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ccb575315f5cf0b4ea388ba21f539b1a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  BullectDestroyVFX: {fileID: 2589494901678360075}
+  BullectDestroyVFX: {fileID: 2589494901692794829}
 --- !u!1001 &2589494901678521051
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -393,15 +393,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 89e78efe92dfe5a42837b392cdb0bf9e, type: 3}
---- !u!1 &2589494901678360075 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 195792, guid: 89e78efe92dfe5a42837b392cdb0bf9e,
-    type: 3}
-  m_PrefabInstance: {fileID: 2589494901678521051}
-  m_PrefabAsset: {fileID: 0}
 --- !u!4 &2589494901678593937 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 486730, guid: 89e78efe92dfe5a42837b392cdb0bf9e,
+    type: 3}
+  m_PrefabInstance: {fileID: 2589494901678521051}
+  m_PrefabAsset: {fileID: 0}
+--- !u!198 &2589494901692794829 stripped
+ParticleSystem:
+  m_CorrespondingSourceObject: {fileID: 19807510, guid: 89e78efe92dfe5a42837b392cdb0bf9e,
     type: 3}
   m_PrefabInstance: {fileID: 2589494901678521051}
   m_PrefabAsset: {fileID: 0}

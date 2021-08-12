@@ -21,7 +21,9 @@ namespace BattleTank
         public void Movement()
         {
             // rigidbody.AddForce(bulletView.transform.forward * bulletModel.bulletForce, ForceMode.Impulse);
-            Vector3 move = bulletView.transform.transform.position += bulletView.transform.forward * bulletModel.bulletForce * Time.fixedDeltaTime;
+
+            Vector3 move = bulletView.transform.transform.position;
+            move += bulletView.transform.forward * bulletModel.bulletForce * Time.fixedDeltaTime;
 
             rigidbody.MovePosition(move);
         }
