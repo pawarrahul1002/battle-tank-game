@@ -9,6 +9,7 @@ namespace BattleTank
         private TankController tankController;
         private float movement, rotation;
         private float canFire = 0f;
+        // public static Transform pos;
 
         public Transform BulletShootPoint;
         // public GameObject tankDestroyVFX;
@@ -22,6 +23,7 @@ namespace BattleTank
         {
             Movement();
             ShootBullet();
+            // tankController.PlayerPos();
         }
 
         private void FixedUpdate()

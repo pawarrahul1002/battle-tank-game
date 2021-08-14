@@ -9803,7 +9803,7 @@ GameObject:
   - component: {fileID: 2565697357936086368}
   - component: {fileID: 2565697357936086369}
   - component: {fileID: 2565697357936086370}
-  - component: {fileID: 114012153316942112}
+  - component: {fileID: 114019780141629228}
   m_Layer: 10
   m_Name: pfEnemyTank
   m_TagString: Enemy
@@ -9901,7 +9901,7 @@ MonoBehaviour:
   bulletPrefab: {fileID: 7977844775439780506, guid: e7bafce44115c354783172bb455d8579,
     type: 3}
   bulletForce: 20
---- !u!114 &114012153316942112
+--- !u!114 &114019780141629228
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}

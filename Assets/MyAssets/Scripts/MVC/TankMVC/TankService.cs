@@ -8,7 +8,13 @@ namespace BattleTank
     public class TankService : MonoSingletonGeneric<TankService>
     {
         public TankScriptableObjectList tankListSO;
-        public TankScriptableObjects tankScriptable { get; private set; }
+        public TankScriptableObjects tankScriptableObjects { get; private set; }
+        private Transform playerPos;
+
+        public TankView tankView { get; private set; }
+
+        int randomNo;
+        // int 
         private void Start()
         {
             StartGame();
@@ -21,14 +27,23 @@ namespace BattleTank
 
         private TankController CreatNewTank()
         {
-            int randomNo = Random.Range(0, tankListSO.tanks.Length);
+            randomNo = Random.Range(0, tankListSO.tanks.Length);
             TankScriptableObjects tankScriptableObjects = tankListSO.tanks[randomNo];
-            TankView tankView = tankScriptableObjects.tankView;
+            tankView = tankScriptableObjects.tankView;
+            // playerPos = tankView.transform;
             TankModel tankModel = new TankModel(tankScriptableObjects);
             TankController tank = new TankController(tankModel, tankView);
 
+
             return tank;
         }
+
+        public void PlayerPos()
+        {
+            Debug.Log(tankView.transform.position);
+        }
+
+
     }
 }
 

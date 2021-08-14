@@ -9495,7 +9495,7 @@ GameObject:
   - component: {fileID: 6467218621629760803}
   m_Layer: 0
   m_Name: pfBlueTank
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

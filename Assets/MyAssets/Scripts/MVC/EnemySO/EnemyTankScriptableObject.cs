@@ -10,8 +10,17 @@ namespace BattleTank
     {
         [Header("MVC Essentials")]
         public EnemyView enemyView;
-        public List<Transform> enemyPos;
-        public float spwanTime = 5f;
+        public float enemyHealth;
+        public BoxCollider groundArea;
+        // public List<Transform> enemyPos;
+        // public float spwanTime = 5f;
 
     }
+    [CreateAssetMenu(fileName = "EnemyTankSO_List", menuName = "EnemyScriptableObjectList/EnemyTankListOfSO")]
+    public class EnemyTankScriptableObjectList : ScriptableObject
+    {
+        public EnemyTankScriptableObject[] enemyTanks;
+    }//class
+
+
 }

@@ -7,15 +7,17 @@ namespace BattleTank
     public class EnemyModel
     {
         private EnemyControlller enemyControlller;
-        public BulletScriptableObjects bulletType { get; private set; }
-        public float spwanTime { get; private set; }
+        public float enemyHealth { get; set; }
 
-        public EnemyModel(EnemyTankScriptableObject enmeySO)
+        public BoxCollider groundArea;
+
+        public EnemyModel(EnemyTankScriptableObject enemySO)
         {
-            spwanTime = enmeySO.spwanTime;
+            enemyHealth = enemySO.enemyHealth;
+            groundArea = enemySO.groundArea;
         }
 
-        public void SetTankController(EnemyControlller _enemyControlller)
+        public void SetEnemyTankController(EnemyControlller _enemyControlller)
         {
             enemyControlller = _enemyControlller;
         }

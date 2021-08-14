@@ -6,9 +6,21 @@ namespace BattleTank
 {
     public class player1 : MonoBehaviour
     {
+        private TankView tankView;
+
+        public void SetTankView(TankView tank)
+        {
+            tankView = tank;
+        }
+
+        public Transform GetTankTransform()
+        {
+            return tankView.transform;
+        }
+
         void Start()
         {
-            player2.GetInstance().CreatingBullet();
+            Debug.Log(tankView.transform.position);
         }
     }
 }
