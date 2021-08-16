@@ -8,31 +8,25 @@ namespace BattleTank
     public class EnemyView : MonoBehaviour
     {
         private NavMeshAgent enemyNavMesh;
-        private EnemyControlller enemyControlller;
+        private EnemyController enemyController;
         private BoxCollider ground;
         private float maxX, maxZ, minX, minZ;
         private float timer, patrolTime;
         public float howClose;
-        // private TankController tankController;
-        // public void SetTankController(TankController _tankController)
-        // {
-        //     tankController = _tankController;
-        // }
-        // Vector3 playerPos;
-        // private TankView tankView;
+        private float canFire = 0f;
+        public Transform BulletShootPoint;
 
-
-        public void SetEnemyTankController(EnemyControlller _enemyControlller)
+        public void SetEnemyTankController(EnemyController _enemyController)
         {
-            enemyControlller = _enemyControlller;
+            enemyController = _enemyController;
+
+            // Debug.Log(enemyController);
         }
 
 
         void Awake()
         {
-            // tankView = GetComponent<TankView>();
             enemyNavMesh = gameObject.GetComponent<NavMeshAgent>();
-            // Debug.Log(enemyNavMesh);
         }
 
         void Start()
@@ -44,26 +38,23 @@ namespace BattleTank
             minZ = ground.bounds.min.z;
             timer = 0;
             patrolTime = 5f;
-            howClose = 10f;
+            howClose = 20f;
             Invoke("Patrol", 1f);
         }
 
         void Update()
         {
-            // TankController.GetInstance().GetCurrentTankPosition();
-            // float distance = Vector3.Distance(TankService.GetInstance().PlayerPos().position, transform.position);
-            // if (distance <= howClose)
-            // {
-            //     transform.LookAt();
-            //     enemy.SetDestination(player.position);
-            //     Shoot();
-            // }
-            // else
-            // {
-
-            // tankController.PlayerPos();
-            Patrol();
-            // }
+            float distance = Vector3.Distance(TankService.GetInstance().PlayerPos().position, transform.position);
+            if (distance <= howClose)
+            {
+                transform.LookAt(TankService.GetInstance().PlayerPos());
+                enemyNavMesh.SetDestination(TankService.GetInstance().PlayerPos().position);
+                ShootBullet();
+            }
+            else
+            {
+                Patrol();
+            }
         }
 
         public Vector3 GetRandomPosition()
@@ -87,6 +78,15 @@ namespace BattleTank
             {
                 SetPatrolingDestination();
                 timer = 0;
+            }
+        }
+
+        private void ShootBullet()
+        {
+            if (canFire < Time.time)
+            {
+                canFire = enemyController.enemyModel.fireRate + Time.time;
+                enemyController.ShootBullet();
             }
         }
 

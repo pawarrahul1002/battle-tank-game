@@ -9,7 +9,7 @@ namespace BattleTank
         public TankModel tankModel { get; private set; }
         public TankView tankView { get; private set; }
         private Rigidbody rb;
-        public TankController(TankModel _tankModel, TankView _tankView) //constructor
+        public TankController(TankModel _tankModel, TankView _tankView)
         {
             tankModel = _tankModel;
             tankView = GameObject.Instantiate<TankView>(_tankView);
@@ -18,22 +18,15 @@ namespace BattleTank
             tankView.SetTankController(this);
             tankModel.SetTankController(this);
 
-            // EnemyControlller enemy = new EnemyControlller(tankView);
-
         }
 
         public void MoveTank(float movement, float movementSpeed)
         {
             Vector3 move = tankView.transform.position;
-            // Debug.Log(move);
             move += tankView.transform.forward * movement * movementSpeed * Time.fixedDeltaTime;
             rb.MovePosition(move);
+            TankService.GetInstance().GetPlayerPos(tankView.transform);
         }
-
-        // public void PlayerPos()
-        // {
-        //     Debug.Log(tankView.transform.position);
-        // }
 
         public void RotateTank(float rotation, float rotateSpeed)
         {
@@ -60,20 +53,7 @@ namespace BattleTank
             return tankModel.bulletType;
         }
 
-        // public void GetCurrentTankPosition()
-        // {
-        //     Debug.Log(tankView.transform.position);
-        //     // return tankView.transform.position;
-        // }
-
-
-
     }
-
-
-
-
-
 
 }//class
 

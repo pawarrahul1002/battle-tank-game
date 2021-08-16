@@ -9802,7 +9802,6 @@ GameObject:
   - component: {fileID: 2565697357936086375}
   - component: {fileID: 2565697357936086368}
   - component: {fileID: 2565697357936086369}
-  - component: {fileID: 2565697357936086370}
   - component: {fileID: 114019780141629228}
   m_Layer: 10
   m_Name: pfEnemyTank
@@ -9866,7 +9865,7 @@ NavMeshAgent:
   m_Enabled: 1
   m_AgentTypeID: 0
   m_Radius: 0.5
-  m_Speed: 10
+  m_Speed: 7
   m_Acceleration: 8
   avoidancePriority: 50
   m_AngularSpeed: 120
@@ -9878,29 +9877,6 @@ NavMeshAgent:
   m_BaseOffset: 0
   m_WalkableMask: 4294967295
   m_ObstacleAvoidanceType: 4
---- !u!114 &2565697357936086370
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2565697357936086371}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 04521375e3e606749a3f0eb00ff51276, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  enemy: {fileID: 2565697357936086369}
-  player: {fileID: 0}
-  howClose: 15
-  patrolTime: 5
-  timer: 5
-  canFire: 1.5
-  fireRate: 3
-  firepoint: {fileID: 2565697358202662030}
-  bulletPrefab: {fileID: 7977844775439780506, guid: e7bafce44115c354783172bb455d8579,
-    type: 3}
-  bulletForce: 20
 --- !u!114 &114019780141629228
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -9913,6 +9889,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 99fe626d994b5494d9017b497803454a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  howClose: 15
+  BulletShootPoint: {fileID: 2565697358202662030}
 --- !u!1 &2565697358202662031
 GameObject:
   m_ObjectHideFlags: 0

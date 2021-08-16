@@ -17,3 +17,5 @@ MonoBehaviour:
   enemyHealth: 10
   groundArea: {fileID: 480680654253685594, guid: 4070440cf14fda34aa994223e5d75010,
     type: 3}
+  fireRate: 5
+  bulletType: {fileID: 11400000, guid: c6f456cae084fae4abbe7c274135cb75, type: 2}

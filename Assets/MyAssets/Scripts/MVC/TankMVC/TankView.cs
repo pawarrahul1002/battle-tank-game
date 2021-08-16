@@ -17,6 +17,7 @@ namespace BattleTank
         public void SetTankController(TankController _tankController)
         {
             tankController = _tankController;
+            // Debug.Log(tankController);
         }
 
         void Update()

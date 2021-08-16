@@ -15,5 +15,5 @@ MonoBehaviour:
   bulletView: {fileID: 114543684234428234, guid: e7bafce44115c354783172bb455d8579,
     type: 3}
   bulletTypes: 3
-  bulletForce: 5
+  bulletForce: 12
   bulletDamage: 10

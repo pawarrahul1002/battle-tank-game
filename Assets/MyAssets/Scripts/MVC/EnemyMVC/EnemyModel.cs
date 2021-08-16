@@ -6,8 +6,11 @@ namespace BattleTank
 {
     public class EnemyModel
     {
-        private EnemyControlller enemyControlller;
+        private EnemyController enemyController;
         public float enemyHealth { get; set; }
+        public float fireRate { get; private set; }
+        public BulletScriptableObjects bulletType { get; private set; }
+
 
         public BoxCollider groundArea;
 
@@ -15,11 +18,13 @@ namespace BattleTank
         {
             enemyHealth = enemySO.enemyHealth;
             groundArea = enemySO.groundArea;
+            fireRate = enemySO.fireRate;
+            bulletType = enemySO.bulletType;
         }
 
-        public void SetEnemyTankController(EnemyControlller _enemyControlller)
+        public void SetEnemyTankController(EnemyController _enemyController)
         {
-            enemyControlller = _enemyControlller;
+            enemyController = _enemyController;
         }
     }
 }

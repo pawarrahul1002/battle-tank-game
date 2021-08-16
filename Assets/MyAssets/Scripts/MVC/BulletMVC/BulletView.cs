@@ -37,9 +37,5 @@ namespace BattleTank
             Destroy(gameObject);
         }
 
-
-
-
-
     }
 }

@@ -12,6 +12,15 @@ namespace BattleTank
         [SerializeField] private Vector3 offset = new Vector3(300, 300, 300);
         Vector3 targetPos;
 
+
+
+        public static CameraController instance;
+
+        void Awake()
+        {
+            instance = this;
+        }
+
         public void SetTarget(Transform target)
         {
             this.target = target;

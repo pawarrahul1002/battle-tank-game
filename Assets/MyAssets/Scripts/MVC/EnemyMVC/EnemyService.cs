@@ -26,12 +26,12 @@ namespace BattleTank
             enemyPos.RemoveAt(num);
         }
 
-        private EnemyControlller CreatEnemy(Transform tranformPos)
+        private EnemyController CreatEnemy(Transform tranformPos)
         {
             EnemyView enemyView = enemyTankScriptableObject.enemyView;
             Vector3 pos = tranformPos.position;
             EnemyModel enemyModel = new EnemyModel(enemyTankScriptableObject);
-            EnemyControlller enemy = new EnemyControlller(enemyModel, enemyView, pos);
+            EnemyController enemy = new EnemyController(enemyModel, enemyView, pos);
             return enemy;
         }
 

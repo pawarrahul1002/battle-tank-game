@@ -12,10 +12,15 @@ namespace BattleTank
         public EnemyView enemyView;
         public float enemyHealth;
         public BoxCollider groundArea;
+
+        [Header("Enemy Shooting Variables")]
+        public float fireRate;
+        public BulletScriptableObjects bulletType;
         // public List<Transform> enemyPos;
         // public float spwanTime = 5f;
 
     }
+
     [CreateAssetMenu(fileName = "EnemyTankSO_List", menuName = "EnemyScriptableObjectList/EnemyTankListOfSO")]
     public class EnemyTankScriptableObjectList : ScriptableObject
     {

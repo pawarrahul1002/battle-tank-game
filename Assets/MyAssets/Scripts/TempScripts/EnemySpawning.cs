@@ -14,9 +14,7 @@ public class EnemySpawning : MonoBehaviour
     void Start()
     {
         count = 0;
-
         StartCoroutine(SpwanWaiting());
-        // Invoke("SpawningEnemy", 0.2f);
         count++;
     }
 

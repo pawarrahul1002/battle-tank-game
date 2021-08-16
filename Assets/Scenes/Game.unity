@@ -146,7 +146,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!114 &270050153
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -156,11 +156,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 270050152}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b4e53ae259ead06479255365b4029492, type: 3}
+  m_Script: {fileID: 11500000, guid: 45e35c9ce4a120d4fab353d5506556c7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  enemyPrefab: {fileID: 2565697357936086371, guid: fe38a0bfbe64fa74dbc698add95bafbc,
-    type: 3}
+  enemyTankScriptableObject: {fileID: 11400000, guid: 38d1f247017a0924382ed1e20f78b302,
+    type: 2}
   enemyPos:
   - {fileID: 3608396382916155502}
   - {fileID: 4829805653107277387}
@@ -198,7 +198,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &824553509
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -206,7 +206,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 824553508}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 731f5a15150067749aaaae2247bb27f0, type: 3}
   m_Name: 
@@ -232,7 +232,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 824553508}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 45e35c9ce4a120d4fab353d5506556c7, type: 3}
   m_Name: 
@@ -1228,6 +1228,49 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   profile: {fileID: 11400000, guid: d2b82a52b13b9014d988055d0b2f939e, type: 2}
+--- !u!1 &1400733055
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1400733057}
+  - component: {fileID: 1400733056}
+  m_Layer: 0
+  m_Name: GameObject
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 0
+--- !u!114 &1400733056
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1400733055}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 72c3582a5e0278543b12c035167ada19, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!4 &1400733057
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1400733055}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -0.07295731, y: -24.109375, z: -0.020408213}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 10
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1446339507
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1264,13 +1307,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 2565697357936086370, guid: fe38a0bfbe64fa74dbc698add95bafbc,
-        type: 3}
+    - target: {fileID: 0}
       propertyPath: player
       value: 
       objectReference: {fileID: 5787441876271397885}
-    - target: {fileID: 2565697357936086370, guid: fe38a0bfbe64fa74dbc698add95bafbc,
-        type: 3}
+    - target: {fileID: 0}
       propertyPath: boxCollider
       value: 
       objectReference: {fileID: 4456004767734996877}
@@ -1380,13 +1421,13 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1771596986}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 4997e106e4fc6e743a268b640bff2754, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   target: {fileID: 0}
-  smoothSpeed: 0.005
+  smoothSpeed: 0.125
   offset: {x: 300, y: 300, z: 300}
 --- !u!4 &1836608603 stripped
 Transform:
@@ -1424,6 +1465,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   tankListSO: {fileID: 11400000, guid: 2167503054c40ab419e8ce14d71818e0, type: 2}
+  position: {fileID: 0}
 --- !u!4 &1862287684
 Transform:
   m_ObjectHideFlags: 0
@@ -1667,13 +1709,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 2565697357936086370, guid: fe38a0bfbe64fa74dbc698add95bafbc,
-        type: 3}
+    - target: {fileID: 0}
       propertyPath: boxCollider
       value: 
       objectReference: {fileID: 0}
-    - target: {fileID: 2565697357936086370, guid: fe38a0bfbe64fa74dbc698add95bafbc,
-        type: 3}
+    - target: {fileID: 0}
       propertyPath: player
       value: 
       objectReference: {fileID: 5787441876271397885}

@@ -7,9 +7,9 @@ namespace BattleTank
 {
     public class player2 : MonoSingletonGeneric<player2>
     {
-        public void CreatingBullet()
-        {
-            Debug.Log("creating bullets");
-        }
+        // public void CreatingBullet()
+        // {
+        //     Debug.Log("creating bullets");
+        // }
     }
 }
