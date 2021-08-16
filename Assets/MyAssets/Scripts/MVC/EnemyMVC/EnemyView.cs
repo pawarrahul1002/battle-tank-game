@@ -36,9 +36,9 @@ namespace BattleTank
             maxZ = ground.bounds.max.z;
             minX = ground.bounds.min.x;
             minZ = ground.bounds.min.z;
-            timer = 0;
+            timer = 5f;
             patrolTime = 5f;
-            howClose = 20f;
+            howClose = 13f;
             Invoke("Patrol", 1f);
         }
 

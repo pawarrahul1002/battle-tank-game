@@ -29,10 +29,23 @@ namespace BattleTank
         void OnTriggerEnter(Collider other)
         {
 
+            if ((bulletController.bulletModel.type == BulletTypes.EnemyBullet) && other.tag == "Player")
+            {
+                DestroyBullets();
+                // Destroy(other.gameObject);
+            }
+            else if ((bulletController.bulletModel.type != BulletTypes.EnemyBullet) && other.tag == "Enemy")
+            {
+                DestroyBullets();
+                Destroy(other.gameObject);
+            }
 
+        }
+
+        private void DestroyBullets()
+        {
             BullectDestroyVFX.transform.parent = null;
             BullectDestroyVFX.Play();
-
             Destroy(BullectDestroyVFX.gameObject, BullectDestroyVFX.main.duration);
             Destroy(gameObject);
         }

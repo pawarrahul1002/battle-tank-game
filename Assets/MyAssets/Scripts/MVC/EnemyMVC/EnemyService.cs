@@ -9,7 +9,7 @@ namespace BattleTank
         public EnemyTankScriptableObject enemyTankScriptableObject;
         public List<Transform> enemyPos;
         private int count = 0;
-        private float spwanTime = 5f;
+        private float spwanTime = 10f;
 
         void Start()
         {
