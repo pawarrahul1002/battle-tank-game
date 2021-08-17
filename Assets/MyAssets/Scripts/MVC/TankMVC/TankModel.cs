@@ -33,6 +33,13 @@ namespace BattleTank
             tankController = _tankController;
         }
 
+        public void DestroyModel()
+        {
+            // material = null;
+            bulletType = null;
+            tankController = null;
+        }
+
     }//class
 
 

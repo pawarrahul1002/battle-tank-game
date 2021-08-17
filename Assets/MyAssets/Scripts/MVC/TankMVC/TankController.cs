@@ -53,6 +53,37 @@ namespace BattleTank
             return tankModel.bulletType;
         }
 
+
+        public void ApplyDamage(float damage)
+        {
+            tankModel.health -= damage;
+            // UIService.instance.UpdateHealthText(tankModel.health);
+
+            if (tankModel.health <= 0)
+            {
+                Dead();
+            }
+        }
+
+        private void Dead()
+        {
+            TankService.GetInstance().DestroyTank(this);
+        }
+
+        public void DestroyController()
+        {
+            // GameService.instance.CheckForHighScore();
+            // SFXService.instance.PlaySoundAtTrack1(tankView.TankDestroySFX, 1f, 10, true);
+            // VFXService.instance.InstantiateEffects(tankView.TankDestroyVFX, tankView.transform.position);
+            // UIService.instance.ResetScore();
+            tankModel.DestroyModel();
+            tankView.DestroyView();
+            tankModel = null;
+            tankView = null;
+            rb = null;
+            // UnSubscribeEvents();
+        }
+
     }
 
 }//class

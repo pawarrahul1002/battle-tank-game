@@ -15,6 +15,11 @@ namespace BattleTank
         public float howClose;
         private float canFire = 0f;
         public Transform BulletShootPoint;
+        private Transform playerTransform;
+        void Awake()
+        {
+            enemyNavMesh = gameObject.GetComponent<NavMeshAgent>();
+        }
 
         public void SetEnemyTankController(EnemyController _enemyController)
         {
@@ -23,11 +28,11 @@ namespace BattleTank
             // Debug.Log(enemyController);
         }
 
-
-        void Awake()
+        private void setPlayerTransform()
         {
-            enemyNavMesh = gameObject.GetComponent<NavMeshAgent>();
+            playerTransform = TankService.GetInstance().PlayerPos();
         }
+
 
         void Start()
         {
@@ -44,6 +49,11 @@ namespace BattleTank
 
         void Update()
         {
+            EnemyPatrollingAI();
+        }
+
+        private void EnemyPatrollingAI()
+        {
             float distance = Vector3.Distance(TankService.GetInstance().PlayerPos().position, transform.position);
             if (distance <= howClose)
             {
@@ -55,7 +65,9 @@ namespace BattleTank
             {
                 Patrol();
             }
+
         }
+
 
         public Vector3 GetRandomPosition()
         {

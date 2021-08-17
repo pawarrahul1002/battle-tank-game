@@ -13,6 +13,7 @@ namespace BattleTank
 
         public Transform BulletShootPoint;
         // public GameObject tankDestroyVFX;
+        public MeshRenderer[] childs;
 
         public void SetTankController(TankController _tankController)
         {
@@ -47,6 +48,20 @@ namespace BattleTank
                 tankController.ShootBullet();
             }
         }
+        public void DestroyView()
+        {
+            for (int i = 0; i < childs.Length; i++)
+                childs[i] = null;
+            tankController = null;
+            BulletShootPoint = null;
+            // TankDestroyVFX = null;
+            Destroy(this.gameObject);
+        }
+
+
+
+
+
 
     }//class
 

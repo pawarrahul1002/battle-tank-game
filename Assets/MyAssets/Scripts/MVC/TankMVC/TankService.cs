@@ -1,4 +1,4 @@
-﻿using System.Collections;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -9,6 +9,7 @@ namespace BattleTank
     {
         public TankScriptableObjectList tankListSO;
         public TankScriptableObjects tankScriptableObjects { get; private set; }
+        private List<TankController> tanks = new List<TankController>();
         public Transform position;
         public TankView tankView { get; private set; }
         int randomNo;
@@ -30,6 +31,7 @@ namespace BattleTank
             tankView = tankScriptableObjects.tankView;
             TankModel tankModel = new TankModel(tankScriptableObjects);
             TankController tank = new TankController(tankModel, tankView);
+            tanks.Add(tank);
             return tank;
         }
 
@@ -44,6 +46,19 @@ namespace BattleTank
         public Transform PlayerPos()
         {
             return position;
+        }
+
+        public void DestroyTank(TankController tank)
+        {
+            tank.DestroyController();
+            for (int i = 0; i < tanks.Count; i++)
+            {
+                if (tanks[i] == tank)
+                {
+                    tanks[i] = null;
+                    tanks.Remove(tank);
+                }
+            }
         }
 
 
