@@ -17,6 +17,6 @@ MonoBehaviour:
     type: 3}
   movementSpeed: 15
   rotationSpeed: 150
-  health: 200
+  health: 40
   fireRate: 0.0001
   bulletType: {fileID: 11400000, guid: 74f82c2b0ac0f64479a389b679be6fc1, type: 2}

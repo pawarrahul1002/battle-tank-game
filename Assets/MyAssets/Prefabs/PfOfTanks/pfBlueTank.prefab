@@ -9528,8 +9528,8 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 1.2957306, y: 1.7723658, z: 2.0567167}
-  m_Center: {x: 0.1478653, y: 0.8783752, z: -0.030365467}
+  m_Size: {x: 1.3730731, y: 1.7, z: 1.8}
+  m_Center: {x: -0.017308146, y: 0.85, z: 0}
 --- !u!54 &54861522293876318
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -9559,6 +9559,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   BulletShootPoint: {fileID: 6660215323375150451}
+  childs:
+  - {fileID: 6178547886070004432}
+  - {fileID: 6178547886070004438}
+  - {fileID: 6178547886070004440}
+  - {fileID: 6178547886070004434}
 --- !u!1 &6178547886068065698
 GameObject:
   m_ObjectHideFlags: 0

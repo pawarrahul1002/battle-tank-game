@@ -9,8 +9,6 @@ namespace BattleTank
         private TankController tankController;
         private float movement, rotation;
         private float canFire = 0f;
-        // public static Transform pos;
-
         public Transform BulletShootPoint;
         // public GameObject tankDestroyVFX;
         public MeshRenderer[] childs;
@@ -18,14 +16,12 @@ namespace BattleTank
         public void SetTankController(TankController _tankController)
         {
             tankController = _tankController;
-            // Debug.Log(tankController);
         }
 
         void Update()
         {
             Movement();
             ShootBullet();
-            // tankController.PlayerPos();
         }
 
         private void FixedUpdate()
@@ -48,10 +44,13 @@ namespace BattleTank
                 tankController.ShootBullet();
             }
         }
+
         public void DestroyView()
         {
             for (int i = 0; i < childs.Length; i++)
+            {
                 childs[i] = null;
+            }
             tankController = null;
             BulletShootPoint = null;
             // TankDestroyVFX = null;
@@ -59,21 +58,13 @@ namespace BattleTank
         }
 
 
-
-
-
+        public void TakeDamage(float damage)
+        {
+            tankController.ApplyDamage(damage);
+        }
 
     }//class
-
-
 }
-
-
-
-
-
-
-
 
 
 

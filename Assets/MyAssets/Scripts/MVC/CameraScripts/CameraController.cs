@@ -8,12 +8,13 @@ namespace BattleTank
     public class CameraController : MonoSingletonGeneric<CameraController>
     {
         [SerializeField] private Transform target;
+        // [SerializeField] private Transform playerDie;
         [SerializeField] private float smoothSpeed = 0.005f;
         [SerializeField] private Vector3 offset = new Vector3(300, 300, 300);
-        Vector3 targetPos;
-
-
-
+        private Vector3 targetPos;
+        private Vector3 desiredposition;
+        private Vector3 smoothPosition;
+        private Transform playerLastPos;
         public static CameraController instance;
 
         void Awake()
@@ -23,19 +24,29 @@ namespace BattleTank
 
         public void SetTarget(Transform target)
         {
-            this.target = target;
+            if (target != null)
+            {
+                this.target = target;
+            }
         }
 
         private void LateUpdate()
         {
-            Vector3 desiredposition = target.position + offset;
-            Vector3 smoothPosition = Vector3.Lerp(transform.position, desiredposition, smoothSpeed);
-            transform.position = smoothPosition;
+            if (target != null)
+            {
+                desiredposition = target.position + offset;
+                playerLastPos = target;
+            }
+            else
+            {
+                target = playerLastPos;
+            }
 
+            smoothPosition = Vector3.Lerp(this.transform.position, desiredposition, smoothSpeed);
+            transform.position = smoothPosition;
             transform.LookAt(target);
 
         }
-
 
     }
 }

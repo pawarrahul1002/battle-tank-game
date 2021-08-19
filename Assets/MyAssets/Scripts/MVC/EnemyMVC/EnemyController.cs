@@ -22,6 +22,42 @@ namespace BattleTank
             BulletServices.GetInstance().CreateBullet(GetFiringPosition(), GetFiringAngle(), GetBullet());
         }
 
+        public void DeadEnemy()
+        {
+            EnemyService.GetInstance().DestroyEnemyTank(this);
+        }
+
+        public void ApplyDamage(float damage)
+        {
+            enemyModel.enemyHealth -= damage;
+            // UIService.instance.UpdateHealthText(tankModel.health);
+            Debug.Log("Enemy Health : " + enemyModel.enemyHealth);
+
+            if (enemyModel.enemyHealth <= 0)
+            {
+                Debug.Log("Dead called");
+                DeadEnemy();
+            }
+        }
+
+
+        public void DestroyEnemyController()
+        {
+            // GameService.instance.CheckForHighScore();
+            // SFXService.instance.PlaySoundAtTrack1(tankView.TankDestroySFX, 1f, 10, true);
+            // VFXService.instance.InstantiateEffects(tankView.TankDestroyVFX, tankView.transform.position);
+            // UIService.instance.ResetScore();
+            enemyModel.DestroyModel();
+            enemyView.DestroyView();
+            enemyModel = null;
+            enemyView = null;
+            // rb = null;
+            // UnSubscribeEvents();
+        }
+
+
+
+
         public Vector3 GetFiringPosition()
         {
             return enemyView.BulletShootPoint.position;

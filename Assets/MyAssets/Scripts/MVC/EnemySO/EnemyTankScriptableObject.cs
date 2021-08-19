@@ -8,14 +8,16 @@ namespace BattleTank
     [CreateAssetMenu(fileName = "EnemyTankScriptableObjects", menuName = "EnemyScriptableObject/NewEnemy")]
     public class EnemyTankScriptableObject : ScriptableObject
     {
-        [Header("MVC Essentials")]
+        [Header("MVC")]
         public EnemyView enemyView;
-        public float enemyHealth;
         public BoxCollider groundArea;
 
-        [Header("Enemy Shooting Variables")]
+        [Header("Enemy Shooting")]
         public float fireRate;
         public BulletScriptableObjects bulletType;
+
+        [Header("Enemy Health")]
+        public float enemyHealth;
         // public List<Transform> enemyPos;
         // public float spwanTime = 5f;
 

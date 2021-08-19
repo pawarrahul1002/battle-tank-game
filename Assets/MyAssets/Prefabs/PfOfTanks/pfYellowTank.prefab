@@ -14225,7 +14225,6 @@ GameObject:
   - component: {fileID: 54094460165111504}
   - component: {fileID: 65257764093346306}
   - component: {fileID: 6368471238062867224}
-  - component: {fileID: 114066486401101424}
   m_Layer: 0
   m_Name: pfYellowTank
   m_TagString: Player
@@ -14240,8 +14239,8 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7482098846223747297}
-  m_LocalRotation: {x: 0.000000021855694, y: 0, z: -0, w: 1}
-  m_LocalPosition: {x: -0, y: 0, z: 0}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 7482098846223389965}
@@ -14277,8 +14276,8 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 1.2957306, y: 1.7723658, z: 2.0567167}
-  m_Center: {x: 0.1478653, y: 0.8783752, z: -0.030365467}
+  m_Size: {x: 1.5075673, y: 1.8024242, z: 2.0567167}
+  m_Center: {x: -0.024442732, y: 0.8812032, z: -4.7945453e-17}
 --- !u!114 &6368471238062867224
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -14292,18 +14291,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   BulletShootPoint: {fileID: 4299320803188575684}
---- !u!114 &114066486401101424
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7482098846223747297}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 99fe626d994b5494d9017b497803454a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
+  childs:
+  - {fileID: 7482098846225684369}
+  - {fileID: 7482098846225684375}
+  - {fileID: 7482098846225684377}
+  - {fileID: 7482098846225684371}
 --- !u!1 &7482098846223747299
 GameObject:
   m_ObjectHideFlags: 0

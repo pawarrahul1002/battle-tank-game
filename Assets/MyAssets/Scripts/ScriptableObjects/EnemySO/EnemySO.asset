@@ -14,8 +14,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   enemyView: {fileID: 114019780141629228, guid: fe38a0bfbe64fa74dbc698add95bafbc,
     type: 3}
-  enemyHealth: 10
   groundArea: {fileID: 480680654253685594, guid: 4070440cf14fda34aa994223e5d75010,
     type: 3}
   fireRate: 5
   bulletType: {fileID: 11400000, guid: 89ef2db7cce19f543bb7c0194a2e2fc8, type: 2}
+  enemyHealth: 50

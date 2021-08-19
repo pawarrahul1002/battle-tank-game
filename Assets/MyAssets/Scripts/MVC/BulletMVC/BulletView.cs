@@ -8,6 +8,7 @@ namespace BattleTank
     {
         public BulletController bulletController { get; private set; }
         public ParticleSystem BullectDestroyVFX;
+        public GameObject audioSource;
         public float m_MaxLifeTime = 1f;
         public void SetBulletController(BulletController _bulletController)
         {
@@ -16,7 +17,9 @@ namespace BattleTank
 
         void Start()
         {
-            // If it isn't destroyed by then, destroy the shell after it's lifetime.
+            audioSource.transform.parent = null;
+            Destroy(audioSource, 0.5f);
+            // If it isn't destroyed by obstacles then, destroying after it's lifetime.
             Destroy(gameObject, m_MaxLifeTime);
         }
 
@@ -26,19 +29,20 @@ namespace BattleTank
             bulletController.Movement();
         }
 
-        void OnTriggerEnter(Collider other)
+        void OnCollisionEnter(Collision other)
         {
 
-            if ((bulletController.bulletModel.type == BulletTypes.EnemyBullet) && other.tag == "Player")
+            if ((bulletController.bulletModel.type == BulletTypes.EnemyBullet) && other.gameObject.GetComponent<TankView>() != null)
             {
-                DestroyBullets();
-                // Destroy(other.gameObject);
+                TankService.GetInstance().GetTankController().ApplyDamage(bulletController.bulletModel.damage);
             }
-            else if ((bulletController.bulletModel.type != BulletTypes.EnemyBullet) && other.tag == "Enemy")
+            else if ((bulletController.bulletModel.type != BulletTypes.EnemyBullet) && other.gameObject.GetComponent<EnemyView>() != null)
             {
-                DestroyBullets();
-                Destroy(other.gameObject);
+
+                other.gameObject.GetComponent<EnemyView>().enemyController.ApplyDamage(bulletController.bulletModel.damage);
             }
+
+            DestroyBullets();
 
         }
 

@@ -58,6 +58,7 @@ namespace BattleTank
         {
             tankModel.health -= damage;
             // UIService.instance.UpdateHealthText(tankModel.health);
+            Debug.Log("Player Health : " + tankModel.health);
 
             if (tankModel.health <= 0)
             {

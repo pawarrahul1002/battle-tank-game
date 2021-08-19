@@ -8,14 +8,30 @@ namespace BattleTank
     {
         public EnemyTankScriptableObject enemyTankScriptableObject;
         public List<Transform> enemyPos;
+        public List<EnemyController> enemyTanksList = new List<EnemyController>();
+        private EnemyController enemyController;
         private int count = 0;
-        private float spwanTime = 10f;
+        private float spwanTime = 10f;//10f;
 
-        void Start()
+        async void Start()
         {
-            count = 0;
-            StartCoroutine(SpwanWaiting());
-            count++;
+            count = enemyPos.Count;
+            // await new WaitForSeconds(5f);
+            // SpwanWaiting();
+            // await Task.Delay(TimeSpan.FromSecond(1f));
+            // await  SpawningEnemy();
+            // SpawningEnemy();
+            // StartCoroutine(SpwanWaiting());
+
+            await new WaitForSeconds(5f);
+            SpwanWaiting();
+            // Debug.Log("5 sec");
+            // count++;
+        }
+
+        public EnemyController GetEnemyTankController()
+        {
+            return enemyController;
         }
 
 
@@ -31,23 +47,86 @@ namespace BattleTank
             EnemyView enemyView = enemyTankScriptableObject.enemyView;
             Vector3 pos = tranformPos.position;
             EnemyModel enemyModel = new EnemyModel(enemyTankScriptableObject);
-            EnemyController enemy = new EnemyController(enemyModel, enemyView, pos);
-            return enemy;
+            enemyController = new EnemyController(enemyModel, enemyView, pos);
+            enemyTanksList.Add(enemyController);
+            return enemyController;
+
         }
 
-        IEnumerator SpwanWaiting()
+        async void SpwanWaiting()
         {
-            SpawningEnemy();
-            yield return new WaitForSeconds(spwanTime);
-            if (count >= 5)
+            // Debug.Log(enemyPos.Count);
+            for (int i = 0; i < count; i++)
             {
-                StopCoroutine(SpwanWaiting());
+                await new WaitForSeconds(5f);
+                SpawningEnemy();
+                Debug.Log("Wait for 5 sec");
+
             }
-            else
-            {
-                StartCoroutine(SpwanWaiting());
-            }
-            count++;
+        }
+
+        // void SpwanWaiting()
+        // {
+        //     SpawningEnemy();
+        //     // yield return new WaitForSeconds(spwanTime);
+        //     // if (count >= 3)
+        //     // {
+        //     //     // StopCoroutine(SpwanWaiting());
+        //     // }
+        //     // else
+        //     // {
+        //     //     // StartCoroutine(SpwanWaiting());
+        //     // }
+        //     // count++;
+        // }
+
+        // IEnumerator SpwanWaiting()
+        // {
+        //     SpawningEnemy();
+        //     yield return new WaitForSeconds(spwanTime);
+        //     if (count >= 3)
+        //     {
+        //         StopCoroutine(SpwanWaiting());
+        //     }
+        //     else
+        //     {
+        //         StartCoroutine(SpwanWaiting());
+        //     }
+        //     count++;
+        // }
+
+        // public void DestroyEnemyTank(EnemyController enemyController)
+        // {
+        //     enemyController.DestroyEnemyController();
+        //     for (int i = 0; i < enemyTanksList.Count; i++)
+        //     {
+        //         if (enemyTanksList[i] != enemyController)
+        //         {
+        //             Debug.Log("1 ch vela bhau     " + enemyController);
+        //             // enemyTanksList[i] = null;
+        //             // enemyTanksList.Remove(enemyController);
+
+        //             enemyTanksList[i].enemyView.gameObject.SetActive(false);
+        //         }
+        //     }
+        // }
+        public void DestroyEnemyTank(EnemyController enemyController)
+        {
+
+            enemyController.DestroyEnemyController();
+            // for (int i = 0; i < enemyTanksList.Count; i++)
+            // {
+
+            //     if (enemyTanksList[i] == enemyController)
+            //     {
+
+            //         // enemyTanksList[i].enemyView.gameObject.SetActive(false);
+            //         // enemyController.enemyModel = null;
+            //         // Debug.Log(tank);
+            //         enemyTanksList[i] = null;
+            //         enemyTanksList.Remove(enemyController);
+            //     }
+            // }
         }
     }
 }
