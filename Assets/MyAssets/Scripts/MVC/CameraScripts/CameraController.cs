@@ -7,6 +7,7 @@ namespace BattleTank
 
     public class CameraController : MonoSingletonGeneric<CameraController>
     {
+        public Camera cam;
         [SerializeField] private Transform target;
         // [SerializeField] private Transform playerDie;
         [SerializeField] private float smoothSpeed = 0.005f;
@@ -39,6 +40,7 @@ namespace BattleTank
             }
             else
             {
+                cam.orthographicSize = 25f;
                 target = playerLastPos;
             }
 

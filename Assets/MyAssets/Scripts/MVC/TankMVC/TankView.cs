@@ -13,6 +13,8 @@ namespace BattleTank
         // public GameObject tankDestroyVFX;
         public MeshRenderer[] childs;
 
+        public ParticleSystem TankDestroyVFX;
+
         public void SetTankController(TankController _tankController)
         {
             tankController = _tankController;
@@ -53,15 +55,17 @@ namespace BattleTank
             }
             tankController = null;
             BulletShootPoint = null;
-            // TankDestroyVFX = null;
+            TankDestroyVFX.transform.parent = null;
+            TankDestroyVFX.Play();
+            Destroy(TankDestroyVFX.gameObject, TankDestroyVFX.main.duration + 1f);
             Destroy(this.gameObject);
         }
 
 
-        public void TakeDamage(float damage)
-        {
-            tankController.ApplyDamage(damage);
-        }
+        // public void TakeDamage(float damage)
+        // {
+        //     tankController.ApplyDamage(damage);
+        // }
 
     }//class
 }

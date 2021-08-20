@@ -11,7 +11,7 @@ namespace BattleTank
         public List<EnemyController> enemyTanksList = new List<EnemyController>();
         private EnemyController enemyController;
         private int count = 0;
-        private float spwanTime = 10f;//10f;
+        private float spwanTime = 1f;//10f;
 
         async void Start()
         {
@@ -58,7 +58,7 @@ namespace BattleTank
             // Debug.Log(enemyPos.Count);
             for (int i = 0; i < count; i++)
             {
-                await new WaitForSeconds(5f);
+                await new WaitForSeconds(spwanTime);
                 SpawningEnemy();
                 Debug.Log("Wait for 5 sec");
 

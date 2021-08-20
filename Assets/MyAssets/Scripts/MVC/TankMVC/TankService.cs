@@ -8,7 +8,9 @@ namespace BattleTank
     public class TankService : MonoSingletonGeneric<TankService>
     {
         public TankScriptableObjectList tankListSO;
+
         public TankScriptableObjects tankScriptableObjects { get; private set; }
+        public GameObject destroyGround;
         private List<TankController> tanks = new List<TankController>();
         public Transform position;
         public TankView tankView { get; private set; }
@@ -62,9 +64,11 @@ namespace BattleTank
                     tanks.Remove(tank);
                 }
             }
+
+            destroyGround.SetActive(true);
         }
 
-        private void DestroyAllEnemies()
+        async void DestroyAllEnemies()
         {
             enemyControllers = EnemyService.GetInstance().enemyTanksList;
 
@@ -72,10 +76,8 @@ namespace BattleTank
             {
                 if (EnemyService.GetInstance().enemyTanksList[i].enemyView != null)
                 {
-                    // enemyControllers[i] = null;
-                    // enemyControllers[i].enemyView.gameObject.SetActive(false);
+                    await new WaitForSeconds(2f);
                     enemyControllers[i].DeadEnemy();
-
                 }
             }
 

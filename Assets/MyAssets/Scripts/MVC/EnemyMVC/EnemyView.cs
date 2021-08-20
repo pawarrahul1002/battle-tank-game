@@ -7,6 +7,7 @@ namespace BattleTank
 {
     public class EnemyView : MonoBehaviour
     {
+        public ParticleSystem TankDestroyVFX;
         private NavMeshAgent enemyNavMesh;
         public EnemyController enemyController;
         private BoxCollider ground;
@@ -129,9 +130,16 @@ namespace BattleTank
             enemyNavMesh = null;
             ground = null;
             playerTransform = null;
+            TankDestroyVFX.transform.parent = null;
+            TankDestroyVFX.Play();
+            Destroy(TankDestroyVFX.gameObject, TankDestroyVFX.main.duration + 1f);
             // TankDestroyVFX = null;
             Destroy(this.gameObject);
         }
+
+        // async void PlayParticleEffect(){
+        //     await new WaitForSeconds()
+        // }
 
     }
 }
