@@ -4,6 +4,7 @@ using UnityEngine;
 
 namespace BattleTank
 {
+    //BulletView is monobehaviour class attach to bullet. 
     public class BulletView : MonoBehaviour
     {
         public BulletController bulletController { get; private set; }

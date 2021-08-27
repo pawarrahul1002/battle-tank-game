@@ -4,6 +4,8 @@ using UnityEngine;
 
 namespace BattleTank
 {
+    /*TankController: intialized player tank, controlls all movement 
+        and destroy fun also controls calling of bullets  */
     public class TankController
     {
         public TankModel tankModel { get; private set; }
@@ -13,7 +15,7 @@ namespace BattleTank
         {
             tankModel = _tankModel;
             tankView = GameObject.Instantiate<TankView>(_tankView);
-            CameraController.GetInstance().SetTarget(tankView.transform);
+            CameraController.instance.SetTarget(tankView.transform);
             rb = tankView.GetComponent<Rigidbody>();
             tankView.SetTankController(this);
             tankModel.SetTankController(this);
@@ -53,7 +55,6 @@ namespace BattleTank
             return tankModel.bulletType;
         }
 
-
         public void ApplyDamage(float damage)
         {
             tankModel.health -= damage;
@@ -88,62 +89,3 @@ namespace BattleTank
     }
 
 }//class
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-// public TankView TankView { get; private set; }
-// public TankModel TankModel { get; private set; }
-// // private Rigidbody rigidbody;
-// public TankController(TankModel tankModel, TankView tankPrefab)
-// {
-//     TankModel = tankModel;
-//     TankView = GameObject.Instantiate<TankView>(tankPrefab);
-//     // rigidbody = TankView.GetComponent<Rigidbody>();
-//     TankView.SetTankController(this);
-//     tankModel.SetTankController(this);
-// }
-
-
-// public void Move(float movement, float movementSpeed)
-// {
-//     Vector3 move = TankView.transform.transform.position += TankView.transform.forward * movement * movementSpeed * Time.fixedDeltaTime;
-//     rigidbody.MovePosition(move);
-// }
-
-// public void Rotate(float rotation, float rotateSpeed)
-// {
-//     Vector3 vector = new Vector3(0f, rotation * rotateSpeed, 0f);
-//     Quaternion deltaRotation = Quaternion.Euler(vector * Time.fixedDeltaTime);
-//     rigidbody.MoveRotation(rigidbody.rotation * deltaRotation);
-// }

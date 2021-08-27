@@ -4,6 +4,7 @@ using UnityEngine;
 
 namespace BattleTank
 {
+    //BulletController : this class controls bullet operations of instantiating and movement
     public class BulletController
     {
         public BulletView bulletView { get; private set; }
@@ -20,11 +21,8 @@ namespace BattleTank
 
         public void Movement()
         {
-            // rigidbody.AddForce(bulletView.transform.forward * bulletModel.bulletForce, ForceMode.Impulse);
-
-            Vector3 move = bulletView.transform.transform.position;
+            Vector3 move = bulletView.transform.position;
             move += bulletView.transform.forward * bulletModel.bulletForce * Time.fixedDeltaTime;
-
             rigidbody.MovePosition(move);
         }
 

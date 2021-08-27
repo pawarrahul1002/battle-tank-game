@@ -5,6 +5,8 @@ using UnityEngine;
 
 namespace BattleTank
 {
+    /*tankservice is attcted to gameobject in hirerarcy and handle
+         generating of player and destroy of player and action after die*/
     public class TankService : MonoSingletonGeneric<TankService>
     {
         public TankScriptableObjectList tankListSO;
@@ -65,7 +67,7 @@ namespace BattleTank
                 }
             }
 
-            destroyGround.SetActive(true);
+            // DestroyGround.instance.DestroyMilitary();
         }
 
         async void DestroyAllEnemies()

@@ -4,6 +4,7 @@ using UnityEngine;
 
 namespace BattleTank
 {
+    //this class is help in assigning behavious to bullet
     public class BulletModel
     {
 

@@ -4,6 +4,7 @@ using UnityEngine;
 
 namespace BattleTank
 {
+    //this are scriptable objects for bullets
 
     [CreateAssetMenu(fileName = "BulletScriptableObjects", menuName = "ScriptableObject/NewBullet")]
     public class BulletScriptableObjects : ScriptableObject

@@ -4,6 +4,8 @@ using UnityEngine;
 
 namespace BattleTank
 {
+
+    //this class is use for creating bullets. working on new it
     public class BulletServices : MonoSingletonGeneric<BulletServices>
     {
         public void CreateBullet(Vector3 position, Quaternion rotation, BulletScriptableObjects type)
@@ -13,19 +15,5 @@ namespace BattleTank
             BulletController bulletController = new BulletController(bullet.bulletView, bulletModel, position, rotation);
         }
 
-        // public void DestroyingBullet()
-        // {
-        //     void OnTriggerEnter(Collider other)
-        //     {
-
-        //         BullectDestroyVFX.transform.parent = null;
-        //         BullectDestroyVFX.Play();
-
-        //         Destroy(BullectDestroyVFX.gameObject, BullectDestroyVFX.main.duration);
-        //         Destroy(gameObject);
-        //     }
-        // }
     }
-
-
 }

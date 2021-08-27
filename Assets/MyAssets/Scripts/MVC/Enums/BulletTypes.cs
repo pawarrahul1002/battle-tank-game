@@ -1,5 +1,6 @@
 ﻿namespace BattleTank
 {
+    //eneum for bullet types
     public enum BulletTypes
     {
         None,

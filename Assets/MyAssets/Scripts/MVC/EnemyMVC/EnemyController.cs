@@ -4,10 +4,13 @@ using UnityEngine;
 
 namespace BattleTank
 {
+    //this is enemycontroller, intialized enemy also controls enemy behaviour
     public class EnemyController
     {
         public EnemyModel enemyModel { get; private set; }
         public EnemyView enemyView { get; private set; }
+
+        // private float timer, patrolTime;
 
         public EnemyController(EnemyModel _enemyModel, EnemyView _enemyView, Vector3 pos)
         {
@@ -15,9 +18,95 @@ namespace BattleTank
             enemyView = GameObject.Instantiate<EnemyView>(_enemyView, pos, Quaternion.identity);
             enemyView.SetEnemyTankController(this);
             enemyModel.SetEnemyTankController(this);
+
         }
 
-        public void ShootBullet()
+        public Vector3 GetRandomPosition()
+        {
+            float x = Random.Range(enemyView.minX, enemyView.maxX);
+            float z = Random.Range(enemyView.minZ, enemyView.maxZ);
+            Vector3 randDir = new Vector3(x, 0, z);
+            return randDir;
+        }
+
+        private void SetPatrolingDestination()
+        {
+            Vector3 newDestination = GetRandomPosition();
+            enemyView.enemyNavMesh.SetDestination(newDestination);
+            // Debug.Log(newDestination);
+        }
+
+        public void Patrol()
+        {
+            enemyView.timer += Time.deltaTime;
+            if (enemyView.timer > enemyView.patrolTime)
+            {
+                SetPatrolingDestination();
+                enemyView.timer = 0;
+            }
+        }
+
+
+
+        public void EnemyPatrollingAI()
+        {
+            if (enemyView.playerTransform != null)
+            {
+                float distance = Vector3.Distance(enemyView.playerTransform.position, enemyView.transform.position);
+                if (distance <= enemyView.howClose)
+                {
+                    ChaseToPlayer();
+                    Debug.Log("chasing");
+                }
+                else
+                {
+                    Patrol();
+                }
+            }
+            else
+            {
+
+                Patrol();
+            }
+        }
+
+        private void ChaseToPlayer()
+        {
+            enemyView.transform.LookAt(enemyView.playerTransform);
+            enemyView.enemyNavMesh.SetDestination(enemyView.playerTransform.position);
+            ShootBullet();
+        }
+
+
+        private void ShootBullet()
+        {
+            if (enemyView.canFire < Time.time)
+            {
+                enemyView.canFire = enemyModel.fireRate + Time.time;
+                CreatingBullet();
+            }
+        }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        public void CreatingBullet()
         {
             BulletServices.GetInstance().CreateBullet(GetFiringPosition(), GetFiringAngle(), GetBullet());
         }
@@ -30,7 +119,6 @@ namespace BattleTank
         public void ApplyDamage(float damage)
         {
             enemyModel.enemyHealth -= damage;
-            // UIService.instance.UpdateHealthText(tankModel.health);
             Debug.Log("Enemy Health : " + enemyModel.enemyHealth);
 
             if (enemyModel.enemyHealth <= 0)
@@ -43,19 +131,11 @@ namespace BattleTank
 
         public void DestroyEnemyController()
         {
-            // GameService.instance.CheckForHighScore();
-            // SFXService.instance.PlaySoundAtTrack1(tankView.TankDestroySFX, 1f, 10, true);
-            // VFXService.instance.InstantiateEffects(tankView.TankDestroyVFX, tankView.transform.position);
-            // UIService.instance.ResetScore();
             enemyModel.DestroyModel();
             enemyView.DestroyView();
             enemyModel = null;
             enemyView = null;
-            // rb = null;
-            // UnSubscribeEvents();
         }
-
-
 
 
         public Vector3 GetFiringPosition()

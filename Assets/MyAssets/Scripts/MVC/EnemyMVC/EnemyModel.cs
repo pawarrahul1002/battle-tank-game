@@ -4,6 +4,7 @@ using UnityEngine;
 
 namespace BattleTank
 {
+    //enemymodel help for assgning behaviour to enemy with help of scriptble object
     public class EnemyModel
     {
         private EnemyController enemyController;
@@ -30,7 +31,6 @@ namespace BattleTank
         {
 
             Debug.Log("Destroy Enemy model called");
-            // material = null;
             bulletType = null;
             enemyController = null;
         }

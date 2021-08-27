@@ -4,12 +4,12 @@ using UnityEngine;
 
 namespace BattleTank
 {
-
-    public class CameraController : MonoSingletonGeneric<CameraController>
+    /*this controls camera by follwing player and when 
+        player dies it stays on specific transform*/
+    public class CameraController : MonoBehaviour
     {
         public Camera cam;
         [SerializeField] private Transform target;
-        // [SerializeField] private Transform playerDie;
         [SerializeField] private float smoothSpeed = 0.005f;
         [SerializeField] private Vector3 offset = new Vector3(300, 300, 300);
         private Vector3 targetPos;
@@ -28,6 +28,7 @@ namespace BattleTank
             if (target != null)
             {
                 this.target = target;
+
             }
         }
 
@@ -52,3 +53,4 @@ namespace BattleTank
 
     }
 }
+

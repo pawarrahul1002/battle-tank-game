@@ -4,7 +4,7 @@ using UnityEngine;
 
 namespace BattleTank
 {
-
+    //EnemyTankScriptableObject is use for data of enemy in unity way
     [CreateAssetMenu(fileName = "EnemyTankScriptableObjects", menuName = "EnemyScriptableObject/NewEnemy")]
     public class EnemyTankScriptableObject : ScriptableObject
     {
@@ -18,8 +18,6 @@ namespace BattleTank
 
         [Header("Enemy Health")]
         public float enemyHealth;
-        // public List<Transform> enemyPos;
-        // public float spwanTime = 5f;
 
     }
 

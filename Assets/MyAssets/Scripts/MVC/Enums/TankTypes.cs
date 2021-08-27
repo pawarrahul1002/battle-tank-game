@@ -4,6 +4,7 @@ using UnityEngine;
 
 namespace BattleTank
 {
+    //this is enum for tank types
     public enum TankType
     {
         None,

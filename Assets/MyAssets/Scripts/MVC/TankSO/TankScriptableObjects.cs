@@ -4,6 +4,7 @@ using UnityEngine;
 
 namespace BattleTank
 {
+    /*tankscriptable objets store all data related to player tank */
 
     [CreateAssetMenu(fileName = "TankScriptableObjects", menuName = "ScriptableObject/NewTank")]
     public class TankScriptableObjects : ScriptableObject

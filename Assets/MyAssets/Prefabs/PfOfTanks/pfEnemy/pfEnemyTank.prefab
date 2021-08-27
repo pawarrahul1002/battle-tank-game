@@ -9924,13 +9924,28 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   TankDestroyVFX: {fileID: 6067597034075719517}
+  enemyNavMesh: {fileID: 0}
+  maxX: 0
+  maxZ: 0
+  minX: 0
+  minZ: 0
+  timer: 0
+  patrolTime: 0
   howClose: 15
+  canFire: 0
   BulletShootPoint: {fileID: 2565697358202662030}
+  playerTransform: {fileID: 0}
   childs:
   - {fileID: 2565697357183211075}
   - {fileID: 2565697357345068239}
   - {fileID: 2565697357510834907}
   - {fileID: 2565697357318048008}
+  patrollingState: {fileID: 0}
+  chasingState: {fileID: 0}
+  attackingState: {fileID: 0}
+  initialState: 0
+  activeState: 0
+  currentState: {fileID: 0}
 --- !u!1 &2565697358202662031
 GameObject:
   m_ObjectHideFlags: 0

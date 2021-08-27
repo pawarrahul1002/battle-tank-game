@@ -2,11 +2,15 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class GroundBoxCollider : MonoBehaviour
+namespace BattleTank
 {
-    public static BoxCollider groundboxCollider;
-    void Awake()
+    //this class is use for getting box collider referance from unity 
+    public class GroundBoxCollider : MonoBehaviour
     {
-        groundboxCollider = GetComponent<BoxCollider>();
+        public static BoxCollider groundboxCollider;
+        void Awake()
+        {
+            groundboxCollider = GetComponent<BoxCollider>();
+        }
     }
 }
