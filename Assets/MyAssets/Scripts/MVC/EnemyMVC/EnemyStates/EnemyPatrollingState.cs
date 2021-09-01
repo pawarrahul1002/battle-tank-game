@@ -10,9 +10,7 @@ namespace BattleTank
         {
             base.OnStateEnter();
             enemyView.activeState = EnemyStatesEnum.Patrolling;
-        }
-        private void Update()
-        {
+
             enemyView.enemyController.Patrol();
         }
 

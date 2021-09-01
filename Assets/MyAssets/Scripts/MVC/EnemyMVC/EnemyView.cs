@@ -29,8 +29,6 @@ namespace BattleTank
         public EnemyStatesEnum activeState;
         public EnemyState currentState;
 
-
-
         void Awake()
         {
             // InitializeState()
@@ -39,12 +37,13 @@ namespace BattleTank
 
         void Start()
         {
-            // InitializeState();
+            currentState = patrollingState;
+            InitializeState();
             SetGroundForEnemyPatrolling();
             setPlayerTransform();
             timer = 5f;
             patrolTime = 2f;
-            howClose = 10f;
+            howClose = 15f;
             // Invoke("Patrol", 1f);
         }
 
@@ -70,7 +69,6 @@ namespace BattleTank
         void Update()
         {
             enemyController.EnemyPatrollingAI();
-            // enemyController.Patrol333();
         }
 
 

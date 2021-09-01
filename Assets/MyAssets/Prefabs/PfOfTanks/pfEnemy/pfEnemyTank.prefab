@@ -9835,6 +9835,10 @@ GameObject:
   - component: {fileID: 2565697357936086368}
   - component: {fileID: 2565697357936086369}
   - component: {fileID: 114019780141629228}
+  - component: {fileID: 8433727354040870317}
+  - component: {fileID: 712519850007847951}
+  - component: {fileID: 4900595245326757659}
+  - component: {fileID: 8059784493744345867}
   m_Layer: 10
   m_Name: pfEnemyTank
   m_TagString: Enemy
@@ -9940,12 +9944,64 @@ MonoBehaviour:
   - {fileID: 2565697357345068239}
   - {fileID: 2565697357510834907}
   - {fileID: 2565697357318048008}
-  patrollingState: {fileID: 0}
-  chasingState: {fileID: 0}
-  attackingState: {fileID: 0}
-  initialState: 0
-  activeState: 0
-  currentState: {fileID: 0}
+  patrollingState: {fileID: 712519850007847951}
+  chasingState: {fileID: 4900595245326757659}
+  attackingState: {fileID: 8059784493744345867}
+  initialState: 1
+  activeState: 1
+  currentState: {fileID: 712519850007847951}
+--- !u!114 &8433727354040870317
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2565697357936086371}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 025351d4af4e73742840aa5386bb732d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  enemyView: {fileID: 114019780141629228}
+--- !u!114 &712519850007847951
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2565697357936086371}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c88729cd19352f840bc9beea7e30c7c3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  enemyView: {fileID: 114019780141629228}
+--- !u!114 &4900595245326757659
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2565697357936086371}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: eb399d31d59d9b345a49c1de58620a2b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  enemyView: {fileID: 114019780141629228}
+--- !u!114 &8059784493744345867
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2565697357936086371}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3f28658e5f699654d9e02dcd5d0e674a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  enemyView: {fileID: 114019780141629228}
 --- !u!1 &2565697358202662031
 GameObject:
   m_ObjectHideFlags: 0

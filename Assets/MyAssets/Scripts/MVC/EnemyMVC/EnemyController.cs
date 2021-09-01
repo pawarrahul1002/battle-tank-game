@@ -10,8 +10,6 @@ namespace BattleTank
         public EnemyModel enemyModel { get; private set; }
         public EnemyView enemyView { get; private set; }
 
-        // private float timer, patrolTime;
-
         public EnemyController(EnemyModel _enemyModel, EnemyView _enemyView, Vector3 pos)
         {
             enemyModel = _enemyModel;
@@ -33,7 +31,6 @@ namespace BattleTank
         {
             Vector3 newDestination = GetRandomPosition();
             enemyView.enemyNavMesh.SetDestination(newDestination);
-            // Debug.Log(newDestination);
         }
 
         public void Patrol()
@@ -46,8 +43,6 @@ namespace BattleTank
             }
         }
 
-
-
         public void EnemyPatrollingAI()
         {
             if (enemyView.playerTransform != null)
@@ -55,28 +50,25 @@ namespace BattleTank
                 float distance = Vector3.Distance(enemyView.playerTransform.position, enemyView.transform.position);
                 if (distance <= enemyView.howClose)
                 {
-                    ChaseToPlayer();
-                    Debug.Log("chasing");
+                    enemyView.currentState.ChangeState(enemyView.chasingState);
                 }
                 else
                 {
-                    Patrol();
+                    enemyView.currentState.ChangeState(enemyView.patrollingState);
                 }
             }
             else
             {
-
-                Patrol();
+                enemyView.currentState.ChangeState(enemyView.patrollingState);
             }
         }
 
-        private void ChaseToPlayer()
+        public void ChaseToPlayer()
         {
             enemyView.transform.LookAt(enemyView.playerTransform);
             enemyView.enemyNavMesh.SetDestination(enemyView.playerTransform.position);
             ShootBullet();
         }
-
 
         private void ShootBullet()
         {
@@ -86,25 +78,6 @@ namespace BattleTank
                 CreatingBullet();
             }
         }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
         public void CreatingBullet()
         {
@@ -128,7 +101,6 @@ namespace BattleTank
             }
         }
 
-
         public void DestroyEnemyController()
         {
             enemyModel.DestroyModel();
@@ -136,7 +108,6 @@ namespace BattleTank
             enemyModel = null;
             enemyView = null;
         }
-
 
         public Vector3 GetFiringPosition()
         {

@@ -9,8 +9,6 @@ namespace BattleTank
     {
         public EnemyView enemyView;
 
-
-
         public virtual void OnStateEnter()
         {
             this.enabled = true;
@@ -24,7 +22,9 @@ namespace BattleTank
         public void ChangeState(EnemyState newState)
         {
             if (enemyView.currentState != null)
+            {
                 enemyView.currentState.OnStateExit();
+            }
 
             enemyView.currentState = newState;
             enemyView.currentState.OnStateEnter();
