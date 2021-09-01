@@ -1,0 +1,21 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 206ce06c695f31843970c517b47dc251, type: 3}
+  m_Name: EnemySO
+  m_EditorClassIdentifier: 
+  enemyView: {fileID: 114019780141629228, guid: fe38a0bfbe64fa74dbc698add95bafbc,
+    type: 3}
+  groundArea: {fileID: 480680654253685594, guid: 4070440cf14fda34aa994223e5d75010,
+    type: 3}
+  fireRate: 5
+  bulletType: {fileID: 11400000, guid: 89ef2db7cce19f543bb7c0194a2e2fc8, type: 2}
+  enemyHealth: 50
