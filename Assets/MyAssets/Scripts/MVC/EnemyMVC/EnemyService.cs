@@ -19,17 +19,26 @@ namespace BattleTank
             count = enemyPos.Count;
             await new WaitForSeconds(5f);
             SpwanWaiting();
-
-
-            // await new WaitForSeconds(5f);
-            // SpwanWaiting();
-            // await Task.Delay(TimeSpan.FromSecond(1f));
-            // await  SpawningEnemy();
-            // SpawningEnemy();
-            // StartCoroutine(SpwanWaiting());
-            // Debug.Log("5 sec");
-            // count++;
+            SubEvent();
         }
+
+        private void SubEvent()
+        {
+            EventService.GetInstance().OnEnemyKilled += UpdateEnemiesKilledCount;
+        }
+
+        private void UpdateEnemiesKilledCount()
+        {
+            TankService.GetInstance().GetCurrentTankModel().enemyKilled += 1;
+            // PlayerPrefs.SetInt("EnemiesKilled", TankService.instance.GetCurrentTankModel().EnemiesKilled);
+            // Debug.Log(TankService.instance.GetCurrentTankModel().EnemiesKilled);
+            // UIService.instance.UpdateScoreText();
+            AchievementServices.GetInstance().GetAchievementController().CheckForEnemyKilledAchievement();
+        }
+
+
+
+
 
         public EnemyController GetEnemyTankController()
         {
@@ -67,9 +76,16 @@ namespace BattleTank
             }
         }
 
+        public void UnsubscribeEvents()
+        {
+            Debug.Log("Unscub");
+            EventService.GetInstance().OnEnemyKilled -= UpdateEnemiesKilledCount;
+        }
+
 
         public void DestroyEnemyTank(EnemyController enemyController)
         {
+            // UnsubscribeEvents();
 
             enemyController.DestroyEnemyController();
         }

@@ -8,9 +8,11 @@ namespace BattleTank
     public class AchievementModel
     {
         public BulletsFiredAchievementSO bulletsFiredAchievementSO { get; private set; }
-        public AchievementModel(BulletsFiredAchievementSO bulletsFiredSO)
+        public EnemyKilledAchievementSO enemyKilledAchievementSO { get; private set; }
+        public AchievementModel(BulletsFiredAchievementSO bulletsFiredSO, EnemyKilledAchievementSO enemyKilledSO)
         {
             this.bulletsFiredAchievementSO = bulletsFiredSO;
+            this.enemyKilledAchievementSO = enemyKilledSO;
         }
     }
 }

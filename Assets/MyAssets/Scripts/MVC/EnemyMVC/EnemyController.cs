@@ -86,6 +86,7 @@ namespace BattleTank
 
         public void DeadEnemy()
         {
+            EventService.GetInstance().InvokeEnemyKilledEvent();
             EnemyService.GetInstance().DestroyEnemyTank(this);
         }
 

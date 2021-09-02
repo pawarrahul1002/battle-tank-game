@@ -79,7 +79,7 @@ namespace BattleTank
         async void DestroyAllEnemies()
         {
             enemyControllers = EnemyService.GetInstance().enemyTanksList;
-
+            EnemyService.GetInstance().UnsubscribeEvents();
             for (int i = 0; i < enemyControllers.Count; i++)
             {
                 if (EnemyService.GetInstance().enemyTanksList[i].enemyView != null)

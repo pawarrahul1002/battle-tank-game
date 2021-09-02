@@ -19,11 +19,12 @@ namespace BattleTank
 
 
     }
+
     public enum BulletAchievementType
     {
         None,
-        AchievementA,
-        AchievementB,
-        AchievementC
+        SharpShooter,
+        WeaponMaster,
+        ScullCrusher
     }
 }

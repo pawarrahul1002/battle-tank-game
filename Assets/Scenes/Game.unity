@@ -1688,10 +1688,10 @@ RectTransform:
   m_Father: {fileID: 424062551}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 1, y: 1}
-  m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -141.45001, y: -11}
-  m_SizeDelta: {x: 282.90002, y: 22}
+  m_AnchorMin: {x: 0.5, y: 0}
+  m_AnchorMax: {x: 0.5, y: 0}
+  m_AnchoredPosition: {x: 0, y: 20}
+  m_SizeDelta: {x: 282.90002, y: 40}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1791177292
 MonoBehaviour:
@@ -1805,14 +1805,14 @@ MonoBehaviour:
   m_fontSizeMin: 18
   m_fontSizeMax: 72
   m_fontStyle: 0
-  m_textAlignment: 516
+  m_textAlignment: 514
   m_characterSpacing: 0
   m_wordSpacing: 0
   m_lineSpacing: 0
   m_lineSpacingMax: 0
   m_paragraphSpacing: 0
   m_charWidthMaxAdj: 0
-  m_enableWordWrapping: 1
+  m_enableWordWrapping: 0
   m_wordWrappingRatios: 0.4
   m_overflowMode: 0
   m_firstOverflowCharacterIndex: -1
@@ -1974,6 +1974,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   bulletsFiredSO: {fileID: 11400000, guid: 463032bf3a24bb94983c4b3c903e2e28, type: 2}
+  enemyKilledSO: {fileID: 11400000, guid: 42d0814c1765ec4478611af0211de9b4, type: 2}
 --- !u!1 &1894425021 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 1312344720711240, guid: 0aac6aef14f064c3fb626270cff2683b,

@@ -8,11 +8,13 @@ namespace BattleTank
     {
         public AchievementModel achivementModel { get; private set; }
         private int currentStageOfBulletFiredAchievement;
+        private int currentStageOfEnemyKilledAchievement;
 
 
         public AchievementController(AchievementModel achivementModel)
         {
             currentStageOfBulletFiredAchievement = 0;//PlayerPrefs.GetInt("BulletFireAchievement", 0);
+            currentStageOfEnemyKilledAchievement = 0;
             this.achivementModel = achivementModel;
         }
 
@@ -27,7 +29,8 @@ namespace BattleTank
                 }
                 if (TankService.GetInstance().GetCurrentTankModel().bulletFired == achivementModel.bulletsFiredAchievementSO.setps[i].requirement)
                 {
-                    UnlockedAchievement(achivementModel.bulletsFiredAchievementSO.setps[i].bulletAchievementType);
+                    string achievement = achivementModel.bulletsFiredAchievementSO.setps[i].bulletAchievementType.ToString();
+                    UnlockedAchievement(achievement);
                     currentStageOfBulletFiredAchievement = i + 1;
                     // PlayerPrefs.SetInt("BulletFireAchievement", currentStageOfBulletFiredAchievement);
                 }
@@ -35,10 +38,34 @@ namespace BattleTank
             }
         }
 
-        void UnlockedAchievement(BulletAchievementType achievementType)
+
+        public void CheckForEnemyKilledAchievement()
         {
-            Debug.Log("Got :" + achievementType);
-            UIManager.GetInstance().PopUpAchievement(achievementType);
+            for (int i = 0; i < achivementModel.enemyKilledAchievementSO.steps.Length; i++)
+            {
+                if (i != currentStageOfEnemyKilledAchievement)
+                {
+                    continue;
+                }
+                if (TankService.GetInstance().GetCurrentTankModel().enemyKilled == achivementModel.enemyKilledAchievementSO.steps[i].requirement)
+                {
+                    string achievement = (achivementModel.enemyKilledAchievementSO.steps[i].EnemyKilledAchievementType).ToString();
+                    UnlockedAchievement(achievement);
+                    currentStageOfEnemyKilledAchievement = i + 1;
+                    // PlayerPrefs.SetInt("BulletFireAchievement", currentStageOfBulletFiredAchievement);
+                }
+                break;
+            }
+        }
+
+
+
+
+
+        void UnlockedAchievement(string achievement)
+        {
+            Debug.Log("Got :" + achievement);
+            UIManager.GetInstance().PopUpAchievement(achievement);
         }
     }
 }

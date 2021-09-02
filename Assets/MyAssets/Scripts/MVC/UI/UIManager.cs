@@ -10,11 +10,12 @@ namespace BattleTank
         public GameObject bulletAchivementPanel;
         public TextMeshProUGUI bulletAchiementText;
 
-        public void PopUpAchievement(BulletAchievementType achievementType)
+        async public void PopUpAchievement(string achievement)
         {
             bulletAchivementPanel.SetActive(true);
-            bulletAchiementText.text = "Achievement : " + achievementType;
+            bulletAchiementText.text = "Achievement Unlocked : " + achievement;
+            await new WaitForSeconds(3f);
+            bulletAchivementPanel.SetActive(false);
         }
-
     }
 }

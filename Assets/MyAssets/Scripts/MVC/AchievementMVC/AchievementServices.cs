@@ -8,6 +8,7 @@ namespace BattleTank
     public class AchievementServices : MonoSingletonGeneric<AchievementServices>
     {
         public BulletsFiredAchievementSO bulletsFiredSO;
+        public EnemyKilledAchievementSO enemyKilledSO;
         private AchievementController achievementController;
 
 
@@ -18,7 +19,7 @@ namespace BattleTank
 
         private void CreatAchievement()
         {
-            AchievementModel achievementModel = new AchievementModel(bulletsFiredSO);
+            AchievementModel achievementModel = new AchievementModel(bulletsFiredSO, enemyKilledSO);
             achievementController = new AchievementController(achievementModel);
         }
 
