@@ -15,6 +15,7 @@ namespace BattleTank
         public float health { get; set; }
         public BulletScriptableObjects bulletType { get; private set; }
         public float fireRate { get; private set; }
+        public int bulletFired { get; set; }
         public TankModel(TankScriptableObjects tankSO)
         {
 
@@ -27,6 +28,8 @@ namespace BattleTank
             health = tankSO.health;
             fireRate = tankSO.fireRate;
             bulletType = tankSO.bulletType;
+            // bulletFired = PlayerPrefs.GetInt("BulletsFired");
+            bulletFired = 0;
         }
 
         public void SetTankController(TankController _tankController)

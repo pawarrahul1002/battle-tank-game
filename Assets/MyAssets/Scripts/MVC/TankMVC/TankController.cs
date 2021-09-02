@@ -13,13 +13,21 @@ namespace BattleTank
         private Rigidbody rb;
         public TankController(TankModel _tankModel, TankView _tankView)
         {
+
+            PlayerPrefs.DeleteAll();
             tankModel = _tankModel;
             tankView = GameObject.Instantiate<TankView>(_tankView);
             CameraController.instance.SetTarget(tankView.transform);
             rb = tankView.GetComponent<Rigidbody>();
             tankView.SetTankController(this);
             tankModel.SetTankController(this);
+            SubscribeEvents();
 
+        }
+
+        private void SubscribeEvents()
+        {
+            EventService.GetInstance().OnPlayerFiredBullet += UpdateBulletsFiredCounter;
         }
 
         public void MoveTank(float movement, float movementSpeed)
@@ -37,9 +45,25 @@ namespace BattleTank
             rb.MoveRotation(rb.rotation * deltaRotation);
         }
 
+        private void UpdateBulletsFiredCounter()
+        {
+            tankModel.bulletFired += 1;
+            // PlayerPrefs.SetInt("BulletsFired", tankModel.bulletFired);
+            // Debug.Log(PlayerPrefs.GetInt("BulletsFired"));
+            Debug.Log(tankModel.bulletFired);
+            AchievementServices.GetInstance().GetAchievementController().CheckForBulletFiredAchievement();
+
+        }
+
         public void ShootBullet()
         {
+            EventService.GetInstance().InvokeOnPlayerFiredBulletEvent();
             BulletServices.GetInstance().CreateBullet(GetFiringPosition(), GetFiringAngle(), GetBullet());
+        }
+
+        private void UnSubscribeEvents()
+        {
+            EventService.GetInstance().OnPlayerFiredBullet -= UpdateBulletsFiredCounter;
         }
 
         public Vector3 GetFiringPosition()
@@ -83,7 +107,7 @@ namespace BattleTank
             tankModel = null;
             tankView = null;
             rb = null;
-            // UnSubscribeEvents();
+            UnSubscribeEvents();
         }
 
     }

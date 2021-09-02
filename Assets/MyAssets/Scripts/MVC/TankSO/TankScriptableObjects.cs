@@ -25,6 +25,7 @@ namespace BattleTank
         [Header("Tank Shooting Variables")]
         public float fireRate;
         public BulletScriptableObjects bulletType;
+
     }//class
 
     [CreateAssetMenu(fileName = "TankSO_List", menuName = "ScriptableObjectList/TankListOfSO")]

@@ -31,7 +31,6 @@ namespace BattleTank
 
         void Awake()
         {
-            // InitializeState()
             enemyNavMesh = gameObject.GetComponent<NavMeshAgent>();
         }
 
@@ -44,7 +43,6 @@ namespace BattleTank
             timer = 5f;
             patrolTime = 2f;
             howClose = 15f;
-            // Invoke("Patrol", 1f);
         }
 
         public void SetEnemyTankController(EnemyController _enemyController)
@@ -167,7 +165,7 @@ namespace BattleTank
 
         public void DestroyView()
         {
-            Debug.Log("Destroy Enemy View called");
+            // Debug.Log("Destroy Enemy View called");
             for (int i = 0; i < childs.Length; i++)
             {
                 childs[i] = null;

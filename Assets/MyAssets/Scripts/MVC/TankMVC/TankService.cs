@@ -12,13 +12,14 @@ namespace BattleTank
         public TankScriptableObjectList tankListSO;
 
         public TankScriptableObjects tankScriptableObjects { get; private set; }
+        private TankModel currentTankmodel;
         public GameObject destroyGround;
         private List<TankController> tanks = new List<TankController>();
         public Transform position;
         public TankView tankView { get; private set; }
         private TankController tankController;
         private List<EnemyController> enemyControllers;
-        int randomNo;
+        private int randomNo;
 
         private void Start()
         {
@@ -31,11 +32,16 @@ namespace BattleTank
             TankScriptableObjects tankScriptableObjects = tankListSO.tanks[randomNo];
             tankView = tankScriptableObjects.tankView;
             TankModel tankModel = new TankModel(tankScriptableObjects);
+            currentTankmodel = tankModel;
             tankController = new TankController(tankModel, tankView);
             tanks.Add(tankController);
             return tankController;
         }
 
+        public TankModel GetCurrentTankModel()
+        {
+            return currentTankmodel;
+        }
 
         public TankController GetTankController()
         {
