@@ -59,13 +59,12 @@ namespace BattleTank
         }
 
 
-
-
-
         void UnlockedAchievement(string achievement)
         {
             Debug.Log("Got :" + achievement);
             UIManager.GetInstance().PopUpAchievement(achievement);
         }
+
     }
+
 }

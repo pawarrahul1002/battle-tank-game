@@ -14,7 +14,7 @@ namespace BattleTank
         public TankController(TankModel _tankModel, TankView _tankView)
         {
 
-            PlayerPrefs.DeleteAll();
+            // PlayerPrefs.DeleteAll();
             tankModel = _tankModel;
             tankView = GameObject.Instantiate<TankView>(_tankView);
             CameraController.instance.SetTarget(tankView.transform);
@@ -58,7 +58,7 @@ namespace BattleTank
         public void ShootBullet()
         {
             EventService.GetInstance().InvokeOnPlayerFiredBulletEvent();
-            BulletServices.GetInstance().CreateBullet(GetFiringPosition(), GetFiringAngle(), GetBullet());
+            // BulletServices.GetInstance().CreateBullet(GetFiringPosition(), GetFiringAngle(), GetBullet());
         }
 
         private void UnSubscribeEvents()
